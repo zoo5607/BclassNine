@@ -56,7 +56,7 @@ public class MemoMain {
                 if (name.equals(memousers.get(i).getName())){
                     System.out.println("비밀번호를 입력해 주세요");
                     String pw = scanner.nextLine();
-                    if(pw.equals(memousers.get(i).getPw())){
+                    if(pw.equals(memousers.get(i).getPassword())){
                         System.out.println("새로운 메모를 입력해 주세요");
                         String newMemo = scanner.nextLine();
                         memousers.get(i).setMemo(newMemo);
@@ -72,10 +72,10 @@ public class MemoMain {
         }
         private void Delete() {
             sc.nextLine();
-            String pw = getStrInput("ISERT PW :");
+            int no = getNumInput("ISERT NO. :");
 
             for(int i = 0; i<memousers.size(); i++ ){
-                if(pw.equals(memousers.get(i).getPw())){
+                if(no == memousers.get(i).getNo()){
                     memousers.remove(i);
                     System.out.println("DELETE!!");
                 } else {
