@@ -1,4 +1,4 @@
-package Memopro;
+package MemoPro;
 
 public class MemoInsert {
     private String Name;

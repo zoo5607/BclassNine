@@ -1,4 +1,4 @@
-package Memopro;
+package MemoPro;
 
 public class MemoApp {
     public static void main(String[] args) {
