@@ -17,6 +17,8 @@ public class MemoMain {
                     break;
                 case 2: List();
                     break;
+                case 3: Modify();
+                    break;
                 case 4: Delete();
                     break;
                 }
@@ -39,6 +41,34 @@ public class MemoMain {
                 memousers.add(new MemoInsert(name, pw, memo));
                 System.out.println(name + " is good");
             }
+        }
+        private void Modify() {
+            if (memousers.isEmpty()) {
+                System.out.println("게시글이 없습니다.");
+                return;
+            }
+            System.out.println("수정하실 이름을 입력해주세요.");
+            Scanner scanner = new Scanner(System.in);
+
+            String name = scanner.nextLine();
+
+            for (int i =0; i<memousers.size();i++){
+                if (name.equals(memousers.get(i).getName())){
+                    System.out.println("비밀번호를 입력해 주세요");
+                    String pw = scanner.nextLine();
+                    if(pw.equals(memousers.get(i).getPw())){
+                        System.out.println("새로운 메모를 입력해 주세요");
+                        String newMemo = scanner.nextLine();
+                        memousers.get(i).setMemo(newMemo);
+                        System.out.println("수정이 완료 되었습니다.");
+                        return;
+                    }else{
+                        System.out.println("비밀번호가 틀립니다.");
+                    }
+
+                }
+            }
+            System.out.println("회원 정보가 없습니다.");
         }
         private void Delete() {
             sc.nextLine();
