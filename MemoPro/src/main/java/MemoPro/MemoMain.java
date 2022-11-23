@@ -8,9 +8,6 @@ import java.util.Scanner;
 public class MemoMain {
     Scanner sc = new Scanner(System.in);
     List<MemoInsert> memousers = new ArrayList<>();
-    public MemoMain() {
-        memousers.add(new MemoInsert("sung","1234","hood"));
-    }
     public void run() {
 
         int key = 0;
@@ -19,6 +16,8 @@ public class MemoMain {
                 case 1: Insert();
                     break;
                 case 2: List();
+                    break;
+                case 4: Delete();
                     break;
                 }
             }
@@ -34,11 +33,24 @@ public class MemoMain {
             sc.nextLine();
             String name = getStrInput("name :");
             String pw = getStrInput("pw :");
-            String memo = getStrInput("nemo :");
+            String memo = getStrInput("memo :");
 
             if(pw.equals(pw)) {
                 memousers.add(new MemoInsert(name, pw, memo));
                 System.out.println(name + " is good");
+            }
+        }
+        private void Delete() {
+            sc.nextLine();
+            String pw = getStrInput("ISERT PW :");
+
+            for(int i = 0; i<memousers.size(); i++ ){
+                if(pw.equals(memousers.get(i).getPw())){
+                    memousers.remove(i);
+                    System.out.println("DELETE!!");
+                } else {
+                    System.out.println("THE PASSWORD IS NOT CORRECT");
+                }
             }
         }
 
